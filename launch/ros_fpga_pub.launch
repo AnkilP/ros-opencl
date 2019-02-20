@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="ros_fpga_pub" type="ros_fpga_pub" name="ros_fpga_pub" respawn="true" output="screen">
+  </node>
+</launch>
