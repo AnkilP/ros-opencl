@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
+<<<<<<< HEAD
 project(ros_fpga_pub)
+=======
+project(ros_opencl)
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,15 +12,23 @@ project(ros_fpga_pub)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+<<<<<<< HEAD
   cv_bridge
   image_transport
   roscpp
+=======
+  roscpp
+  rospy
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
   sensor_msgs
   std_msgs
 )
 
+<<<<<<< HEAD
 find_package(CUDA REQUIRED)
 find_package(OpenCV REQUIRED)
+=======
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -36,10 +48,17 @@ find_package(OpenCV REQUIRED)
 ##   your messages/services/actions (e.g. std_msgs, actionlib_msgs, ...).
 ## * In the file package.xml:
 ##   * add a build_depend tag for "message_generation"
+<<<<<<< HEAD
 ##   * add a build_depend and a run_depend tag for each package in MSG_DEP_SET
 ##   * If MSG_DEP_SET isn't empty the following dependency has been pulled in
 ##     but can be declared for certainty nonetheless:
 ##     * add a run_depend tag for "message_runtime"
+=======
+##   * add a build_depend and a exec_depend tag for each package in MSG_DEP_SET
+##   * If MSG_DEP_SET isn't empty the following dependency has been pulled in
+##     but can be declared for certainty nonetheless:
+##     * add a exec_depend tag for "message_runtime"
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## * In this file (CMakeLists.txt):
 ##   * add "message_generation" and every package in MSG_DEP_SET to
 ##     find_package(catkin REQUIRED COMPONENTS ...)
@@ -84,7 +103,11 @@ find_package(OpenCV REQUIRED)
 ## To declare and build dynamic reconfigure parameters within this
 ## package, follow these steps:
 ## * In the file package.xml:
+<<<<<<< HEAD
 ##   * add a build_depend and a run_depend tag for "dynamic_reconfigure"
+=======
+##   * add a build_depend and a exec_depend tag for "dynamic_reconfigure"
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## * In this file (CMakeLists.txt):
 ##   * add "dynamic_reconfigure" to
 ##     find_package(catkin REQUIRED COMPONENTS ...)
@@ -102,14 +125,23 @@ find_package(OpenCV REQUIRED)
 ###################################
 ## The catkin_package macro generates cmake config files for your package
 ## Declare things to be passed to dependent projects
+<<<<<<< HEAD
 ## INCLUDE_DIRS: uncomment this if you package contains header files
+=======
+## INCLUDE_DIRS: uncomment this if your package contains header files
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
+<<<<<<< HEAD
 #  LIBRARIES roscuda_img_filter
 #  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs
+=======
+#  LIBRARIES ros_opencl
+#  CATKIN_DEPENDS roscpp rospy sensor_msgs std_msgs
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 #  DEPENDS system_lib
 )
 
@@ -120,6 +152,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
+<<<<<<< HEAD
   include/ros_fpga_pub/
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
@@ -132,6 +165,15 @@ cuda_add_library(CUDAsobelLib ${LIB_TYPE} src/sobel.cu)
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/roscuda_img_filter.cpp
+=======
+# include
+  ${catkin_INCLUDE_DIRS}
+)
+
+## Declare a C++ library
+# add_library(${PROJECT_NAME}
+#   src/${PROJECT_NAME}/ros_opencl.cpp
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 # )
 
 ## Add cmake target dependencies of the library
@@ -142,8 +184,13 @@ cuda_add_library(CUDAsobelLib ${LIB_TYPE} src/sobel.cu)
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+<<<<<<< HEAD
 # add_executable(${PROJECT_NAME}_node src/roscuda_img_filter_node.cpp)
 add_executable(${PROJECT_NAME} src/bridge_publisher.cpp)
+=======
+# add_executable(${PROJECT_NAME}_node src/ros_opencl_node.cpp)
+
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -153,16 +200,23 @@ add_executable(${PROJECT_NAME} src/bridge_publisher.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+<<<<<<< HEAD
 add_dependencies(${PROJECT_NAME} CUDAsobelLib)
+=======
+
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+<<<<<<< HEAD
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
 ${catkin_LIBRARIES}
 CUDAsobelLib
 ${OpenCV_LIBRARIES}
 )
+=======
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 
 #############
 ## Install ##
@@ -204,7 +258,11 @@ ${OpenCV_LIBRARIES}
 #############
 
 ## Add gtest based cpp test target and link libraries
+<<<<<<< HEAD
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_roscuda_img_filter.cpp)
+=======
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_opencl.cpp)
+>>>>>>> cb7ee75717d8f252cd3ab4e7dbd5c1d99c16630e
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
